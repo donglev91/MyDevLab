@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sweet Memories ^^</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="lblPassword">Who are you?</string>
+    <string name="btn_submit">Submit</string>
+
+    <string name="last_point_file">last_point_file</string>
+</resources>
