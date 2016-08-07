@@ -19,6 +19,11 @@
         <activity android:name=".ListActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".LikeActivity" />
+
+        <provider
+            android:authorities="com.example.lvd.provider.rating"
+            android:name=".RatingMemoryProvider" >
+        </provider>
     </application>
 
 </manifest>

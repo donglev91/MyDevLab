@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
         //Init Data
         if (!isFileExisted(LASTPOINTFILE)){
-
+            iniData();
         }
 
         b = (Button) findViewById(R.id.button);
@@ -92,9 +92,6 @@ public class MainActivity extends ActionBarActivity {
         }
         int numberInserted = getContentResolver().bulkInsert(RatingMemoryProvider.CONTENT_URI, bulkValues);
 
-        /*ContentValues values1 = new ContentValues();
-        values1.put(RatingMemoryProvider.ITEM, "----------");
-        getContentResolver().update(RatingMemoryProvider.CONTENT_URI, values1,"name='Dong'", null);*/
         return numberInserted;
     }
 

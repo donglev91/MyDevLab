@@ -73,10 +73,10 @@ public class RatingMemoryProvider extends ContentProvider {
                 qb.setProjectionMap(MEMORIES_ITEM_RATING_MAP);
                 break;
             case MEMORY_ID:
-                qb.appendWhere(_ID + "=" + uri.getPathSegments().get(1));
+                qb.appendWhere(selection);
                 break;
             case MEMORY_ITEM:
-                qb.appendWhere(ITEM + "=" + uri.getPathSegments().get(1));
+                qb.appendWhere(selection);
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
@@ -142,6 +142,7 @@ public class RatingMemoryProvider extends ContentProvider {
         int count = 0;
         switch (uriMatcher.match(uri)){
             case MEMORIES:
+                count = db.update(RATING_TABLE_NAME, values, selection, selectionArgs);
                 break;
             case MEMORY_ID:
                 count = db.update(RATING_TABLE_NAME, values, selection, selectionArgs);

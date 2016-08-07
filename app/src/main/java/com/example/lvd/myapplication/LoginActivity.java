@@ -18,6 +18,7 @@ public class LoginActivity extends Activity {
     private Button btnSubmit;
     private static int count = 0;
     private final static String PASSWORD = "nguoiyeuha";
+    private final static String PASSWORD_01 = "hjiu";
 
 
     @Override
@@ -34,7 +35,8 @@ public class LoginActivity extends Activity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!PASSWORD.equalsIgnoreCase(password.getText().toString())){
+                if (!PASSWORD.equalsIgnoreCase(password.getText().toString()) &&
+                        !PASSWORD_01.equalsIgnoreCase(password.getText().toString())){
                     count++;
                     if (count < 3){
                         new AlertDialog.Builder(LoginActivity.this)

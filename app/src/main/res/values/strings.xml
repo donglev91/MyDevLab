@@ -6,4 +6,8 @@
     <string name="btn_submit">Submit</string>
 
     <string name="last_point_file">last_point_file</string>
+    <string name="like"> ***** </string>
+    <string name="dislike"> * </string>
+    <string name="maxItem">109</string>
+
 </resources>
