@@ -27,13 +27,14 @@ import java.io.InputStream;
  */
 public class DetailActivity extends Activity{
     static int memoryItem = 0;
-    private final int MAX_ITEM = 109;
-    //private final int MAX_ITEM = Integer.parseInt(this.getString(R.string.maxItem));
+    //private final int MAX_ITEM = 110;
 
     @Override
     public void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_detail);
+
+        final int MAX_ITEM = Integer.parseInt(this.getString(R.string.maxItem));
 
         Bundle extras = getIntent().getExtras();
         if (extras != null){
@@ -99,6 +100,7 @@ public class DetailActivity extends Activity{
     private void showDetailMemory(int memoryItem, TextView memoryTextView){
         String myText;
         try {
+            final int MAX_ITEM = Integer.parseInt(this.getString(R.string.maxItem));
             final String START = "*************** %s ***************";
             final String END = "%s-END";
             final String SEPARATE = "---------------------------";

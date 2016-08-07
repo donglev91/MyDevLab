@@ -27,15 +27,16 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends ActionBarActivity {
     Button b, b1, b2;
-    final String LASTPOINTFILE = "last_point_file";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final String LAST_POINT_FILE = this.getString(R.string.last_point_file);
+
         //Init Data
-        if (!isFileExisted(LASTPOINTFILE)){
+        if (!isFileExisted(LAST_POINT_FILE)){
             iniData();
         }
 
@@ -56,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
             int lastPoint = 0;
             try {
                 //Read last point file
-                FileInputStream fos = openFileInput(LASTPOINTFILE);
+                FileInputStream fos = openFileInput(LAST_POINT_FILE);
                 if (fos != null){
                     lastPoint = fos.read();
                 }
@@ -82,9 +83,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public int iniData(){
-        ContentValues[] bulkValues = new ContentValues[110];
+        final int MAX_ITEM = Integer.parseInt(this.getString(R.string.maxItem));
 
-        for (int i = 0; i <= 109; i++){
+        ContentValues[] bulkValues = new ContentValues[MAX_ITEM + 1];
+
+        for (int i = 0; i <= MAX_ITEM; i++){
             ContentValues values = new ContentValues();
             values.put(RatingMemoryProvider.ITEM, i);
             values.put(RatingMemoryProvider.RATING, 0);
